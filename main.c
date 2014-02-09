@@ -43,6 +43,7 @@ void cleanup() {
 	static int in = 0;
 
 	if (!in++) {
+		memset(buf, 0, sizeof(buf));
 		if (oldsysrq > 0)
 			set_sysrq_state(SYSRQ_PATH, oldsysrq);
 		if (vt.fd >= 0)
@@ -50,7 +51,6 @@ void cleanup() {
 		unlock_vt_switch();
 		release_vt(&vt, oldvt);
 		vt_destroy();
-		memset(buf, 0, sizeof(buf));
 	}
 }
 
