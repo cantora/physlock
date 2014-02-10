@@ -90,7 +90,7 @@ void prompt(FILE *stream, const char *fmt, ...) {
 			buf[i++] = (char) c;
 	}
 	if (ferror(stream))
-		die("could not read from console: %s", strerror(errno));
+		warn("could not read from console: %s", strerror(errno));
 	buf[i] = '\0';
 }
 
