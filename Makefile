@@ -18,7 +18,7 @@ physlock:	$(OBJ)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 install: all
-	install -D -m 4755 -o root -g root physlock $(DESTDIR)$(PREFIX)/bin/physlock
+	install -D -m 755 -o root -g root physlock $(DESTDIR)$(PREFIX)/bin/physlock
 	mkdir -p $(DESTDIR)$(PREFIX)/share/man/man1
 	sed "s/VERSION/$(VERSION)/g" physlock.1 > $(DESTDIR)$(PREFIX)/share/man/man1/physlock.1
 	chmod 644 $(DESTDIR)$(PREFIX)/share/man/man1/physlock.1
